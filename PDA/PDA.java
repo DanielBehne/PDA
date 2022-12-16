@@ -5,9 +5,11 @@
  * @version 2021-06-22 Version 1.0.0
  */
 import java.util.Scanner;
+import java.util.InputMismatchException;
 public class PDA
 {
     int age;
+    int LOWER_BOUND = 14;
     /**
      * Constructor for objects of class PDA
      */
@@ -26,8 +28,13 @@ public class PDA
             System.out.println("How old are you?");
             try {
                 age = scanner.nextInt();
-                System.out.println(age);
+                if (age < LOWER_BOUND) {
+                    System.out.println(age + " is too young!!");
+                } else {
+                    System.out.println((age/2) + 7);
+                }
             } catch (InputMismatchException error) {
+                scanner.next();
                 System.out.println("Please enter an integer");
             }
         }
